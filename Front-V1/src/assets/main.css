@@ -241,7 +241,7 @@ a {
   width: 100%;
   height: 700px;
   position: relative;
-  background-image: url("../../assets/illustrations/pdp-homepage.jpg");
+  background-image: url("https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/covers/homepage-img.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -285,7 +285,7 @@ a {
   font-size: var(--fs-xl);
 }
 .trending__items {
-  width: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -331,6 +331,7 @@ a {
   }
   .trending__list {
     flex-direction: row;
+    align-items: flex-start;
   }
 }
 .presentation {

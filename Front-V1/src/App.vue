@@ -1,11 +1,15 @@
 <script >
 import HeaderComponent from './components/HeaderComponent.vue';
-import OneProduct from './components/OneProduct.vue';
+import Banner from './components/Banner.vue';
+import ProductList from './components/ProductList.vue';
+import Homepage from './components/Homepage.vue';
 
 export default {
   components :{
     HeaderComponent,
-    OneProduct
+    Banner,
+    Homepage,
+    ProductList
   },
   data() {
     return {
@@ -54,14 +58,7 @@ export default {
   
     <HeaderComponent v-bind:categories="cat"></HeaderComponent>
     <main class="main">
-
-      <div class="trending">
-        <p class="trending--title">Articles à la une / Notre sélection</p>
-        <ul class="trending__list">
-          <li class="trending__items" v-for="item in products"><OneProduct v-bind:oneProduct="item"></OneProduct></li>
-        </ul>
-      </div>
-
+      <Homepage v-bind:listProduct="products"></Homepage>
     </main>
     
 </template>
