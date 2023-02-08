@@ -27,7 +27,7 @@
         <ul class="liste">
             <li v-for="item in categories">
                 <div class="nav__cat">
-                    <a :href="item.name" class="nav__cat--txt">{{ item.name }}</a>
+                    <a href="/category" class="nav__cat--txt">{{ item.name }}</a>
                 </div>
             </li>
         </ul>
