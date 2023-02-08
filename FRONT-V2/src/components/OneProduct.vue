@@ -14,7 +14,7 @@
 
 <template>
     <div class="card">
-        <a href="./pages/polos-classique.html"><img class="card--img" :src=" oneProduct.img " :alt=" oneProduct.name "></a>
+        <router-link to="/product"><img class="card--img" :src=" oneProduct.img " :alt=" oneProduct.name "></router-link>
         <p class="card--title">{{ oneProduct.name }}</p>
         <div class="card__avis">
             <img class="card__avis--star" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/star.svg" alt="#">

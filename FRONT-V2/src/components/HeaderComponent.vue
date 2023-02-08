@@ -14,7 +14,7 @@
 
 <template>
     <header class="header">
-      <img class="header--logo" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/croco.svg" alt="logo lacoste">
+      <router-link to="/"><img class="header--logo" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/croco.svg" alt="logo lacoste"></router-link>
       <div class="header__icons">
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/localisation.svg" alt="localisation">
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/favorite.svg" alt="favoris">
@@ -27,7 +27,7 @@
         <ul class="liste">
             <li v-for="item in categories">
                 <div class="nav__cat">
-                    <a href="/" class="nav__cat--txt">{{ item.name }}</a>
+                    <a :href="item.name" class="nav__cat--txt">{{ item.name }}</a>
                 </div>
             </li>
         </ul>
