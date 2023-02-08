@@ -19,6 +19,20 @@ export default {
               {id: 3, name: "Pants"}
       ],
 
+      oneCat:  {
+        description: "Pantalons de très bonne qualité", 
+        name: "Pants",
+        img: "https://picsum.photos/1500/1500"
+      },
+
+      oneProduct:  {
+        id: 1,
+        name: "Un beau polo",
+        description: "edqnjgbipb",
+        price: 160,
+        img: "https://picsum.photos/400"
+      },
+
       products: [
       {
         id: 1,
@@ -57,7 +71,7 @@ export default {
 <template>
     <HeaderComponent v-bind:categories="cat"></HeaderComponent>
     <main class="main">
-      <router-view v-bind:listProduct="products"/> 
+      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat"/> 
     </main> 
 </template>
 
