@@ -61,7 +61,6 @@ export default {
   created(){
     this.getAllProducts();
     this.getAllCategories();
-    this.getOneProduct(5);
     this.getOneCategory(1);
   }
 }
@@ -70,7 +69,7 @@ export default {
 <template>
     <HeaderComponent v-bind:categories="categories"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat"/> 
+      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct"/> 
     </main> 
 </template>
 
