@@ -17,19 +17,9 @@ export default {
     return {
       categories:  [],
 
-      oneCat:  {
-        description: "Pantalons de très bonne qualité", 
-        name: "Pants",
-        img: "https://picsum.photos/1500/1500"
-      },
+      oneCat:  {},
 
-      oneProduct:  {
-        id: 1,
-        name: "Un beau polo",
-        description: "edqnjgbipb",
-        price: 160,
-        img: "https://picsum.photos/400"
-      },
+      oneProduct:  {},
 
       products: []
     }
@@ -47,15 +37,32 @@ export default {
     {
     let res = await fetch (baseURL + 'categories');
     let data = await res.json();
+    
+    console.log(data);
     this.categories = data;
     },
-    setProducts(data) {
-      this.products = data;
-    }
+
+    async getOneProduct(id)
+    {
+    let res = await fetch (baseURL + 'products/' + id);
+    let data = await res.json();
+    console.log(data);
+    this.oneProduct = data;
+    
+    },
+
+    async getOneCategory(id)
+    {
+    let res = await fetch (baseURL + 'categories/' + id);
+    let data = await res.json();
+    this.oneCat = data;
+    },
   },
   created(){
     this.getAllProducts();
     this.getAllCategories();
+    this.getOneProduct(5);
+    this.getOneCategory(1);
   }
 }
 </script>

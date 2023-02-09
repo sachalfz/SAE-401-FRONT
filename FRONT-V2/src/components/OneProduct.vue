@@ -2,7 +2,6 @@
     export default {
         props: {
             oneProduct : {
-                type: Array,
                 required: true,
                 validator(value) {
                     return value.length <= 100;
