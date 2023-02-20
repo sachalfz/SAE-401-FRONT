@@ -15,13 +15,65 @@ export default {
   },
   data() {
     return {
-      categories:  [],
+      categories: [
+        {name: 'Polos'},
+        {name: 'Jeans'},
+        {name: 'Sneakers'}
+      ],
 
-      oneCat:  {},
+      oneCat:  {
+        description: "Pantalons de très bonne qualité", 
+        name: "Pants",
+        img: "https://picsum.photos/1500/1500"
+      },
 
-      oneProduct:  {},
+      oneProduct:  {
+        id: 1,
+        name: "Un beau polo",
+        description: "edqnjgbipb",
+        price: 160,
+        img: "https://picsum.photos/400"
+      },
 
-      products: []
+      products: [
+      {
+        id: 1,
+        name: "Un beau polo",
+        description: "edqnjgbipb",
+        price: 160,
+        img: "https://picsum.photos/400"
+      },
+      {
+        id: 1,
+        name: "Un beau polo",
+        description: "edqnjgbipb",
+        price: 160,
+        img: "https://picsum.photos/400"
+      },
+      {
+        id: 1,
+        name: "Un beau polo",
+        description: "edqnjgbipb",
+        price: 160,
+        img: "https://picsum.photos/400"
+      },
+      {
+        id: 1,
+        name: "Un beau polo",
+        description: "edqnjgbipb",
+        price: 160,
+        img: "https://picsum.photos/400"
+      }
+      ]
+    
+
+      // categories:  [],
+
+      // oneCat:  {},
+
+      // oneProduct:  {},
+
+      // products: []
     }
   },
   
