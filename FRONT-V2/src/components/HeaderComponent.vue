@@ -19,7 +19,7 @@
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/localisation.svg" alt="localisation">
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/favorite.svg" alt="favoris">
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/profile.svg" alt="profile">
-          <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/bag.svg" alt="panier">
+          <a href="/panier"><img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/bag.svg" alt="panier"></a>
       </div>
     </header>
 

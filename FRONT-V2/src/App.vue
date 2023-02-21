@@ -109,6 +109,10 @@ export default {
     let data = await res.json();
     this.oneCat = data;
     },
+
+    deleteItem(produit) {
+          this.products.splice(this.products.indexOf(produit), 1);
+      },
   },
   created(){
     this.getAllProducts();
@@ -121,7 +125,7 @@ export default {
 <template>
     <HeaderComponent v-bind:categories="categories"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct"/> 
+      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct" :trash="true" @delete="deleteItem"/> 
     </main> 
 </template>
 
