@@ -17,5 +17,5 @@ export default {
 </script>
 
 <template>
-    <PanierPage v-bind:products="products" :trash="true" @delete="deleteItem"></PanierPage>
+    <PanierPage v-bind:products="listProduct" :trash="true" @delete="$emit('delete', product)"></PanierPage>
 </template>

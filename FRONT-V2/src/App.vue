@@ -37,28 +37,28 @@ export default {
 
       products: [
       {
-        id: 1,
+        id: 2,
         name: "Un beau polo",
         description: "edqnjgbipb",
         price: 160,
         img: "https://picsum.photos/400"
       },
       {
-        id: 1,
+        id: 3,
         name: "Un beau polo",
         description: "edqnjgbipb",
         price: 160,
         img: "https://picsum.photos/400"
       },
       {
-        id: 1,
+        id: 4,
         name: "Un beau polo",
         description: "edqnjgbipb",
         price: 160,
         img: "https://picsum.photos/400"
       },
       {
-        id: 1,
+        id: 5,
         name: "Un beau polo",
         description: "edqnjgbipb",
         price: 160,
@@ -110,8 +110,9 @@ export default {
     this.oneCat = data;
     },
 
-    deleteItem(produit) {
-          this.products.splice(this.products.indexOf(produit), 1);
+    deleteItem(product) {
+      console.log(product);
+          this.products.splice(this.products.indexOf(product), 1);
       },
   },
   created(){
@@ -125,7 +126,7 @@ export default {
 <template>
     <HeaderComponent v-bind:categories="categories"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct" :trash="true" @delete="deleteItem"/> 
+      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct" :trash="true" @delete="deleteItem" /> 
     </main> 
 </template>
 

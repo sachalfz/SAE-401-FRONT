@@ -536,3 +536,119 @@ a {
 .footer{
   height: 2rem;
 }
+
+#app{
+background-color: #fafafa;
+width: 100%;
+height: 100%;
+margin: 0;
+}
+
+.card__list{
+list-style: none;
+margin: 2rem;
+}
+
+.panier__gauche__produits {
+padding: 81px;
+background-color: white;
+border-radius: 10px;
+margin-bottom: 2rem;
+display: flex;
+flex-direction: column;
+gap: 5rem;
+box-shadow: 0 0 8px 0 rgba(0,0,0,.05);
+min-width: 25vw;
+}
+.panier__gauche__produits__desc {
+font-size: var(--fs-xl);
+font-weight: var(--fw-bold);
+font-family: var(--ff-sans);
+padding-bottom: 1rem;
+}
+.panier__gauche__produits__quote {
+display: flex;
+gap: 1rem;
+flex-direction: row;
+justify-content: space-between;
+}
+.panier__gauche__produits__association {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 25vw;
+font-family: var(--ff-sans);
+font-size: var(--fs-s);
+padding-bottom: 1rem;
+}
+.panier__gauche__produits__text2 {
+font-family: var(--ff-sans);
+font-size: var(--fs-xs);
+padding-bottom: 5rem;
+}
+.panier__gauche__produits__text2__span {
+padding-left: 0.5rem;
+font-weight: var(--fw-semibold);
+}
+.panier__gauche__produits__price {
+font-family: var(--ff-sans);
+font-weight: var(--fw-bold);
+}
+
+.panier__gauche__produits__img{
+width: 187.517px;
+height: 200px;
+border-radius: 10px;
+}
+
+.panier__gauche__produits__text{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+}
+
+.panier__gauche__produits__price{
+font-weight: bold;
+}
+
+.panier__gauche__produits__svg{
+cursor: pointer;
+}
+
+.panier__gauche__divbutton {
+display: flex;
+flex-direction: row-reverse;
+}
+.panier__gauche__button {
+background-color: #105A33;
+border-radius: 24px;
+border: none;
+padding: 1rem 2rem;
+font-family: var(--ff-sans);
+font-size: 0.9375rem;
+font-weight: bold;
+color: white;
+margin-bottom: 3rem;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out;
+}
+.panier__gauche__button:hover {
+background-color: #187c48;
+}
+
+#quantity-select{
+background-size: 1.6rem;
+padding: 8px;
+background-position: right 6px center;
+background-color: #eee;
+border-radius: 1.4rem;
+border: none;
+}
+
+.panier__gauche__produits__quantite{
+display: flex;
+justify-content: flex-end;
+align-items: center;
+width: 25vw;
+}
