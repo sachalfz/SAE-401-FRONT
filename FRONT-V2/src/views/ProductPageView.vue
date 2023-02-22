@@ -24,5 +24,5 @@ export default {
 </script>
 
 <template>
-  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory"></ProductPage>
+  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory" @getOneProduct="$emit('getOneProduct', oneProduct.id)"></ProductPage>
 </template>

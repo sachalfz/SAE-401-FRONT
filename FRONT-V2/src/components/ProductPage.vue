@@ -27,7 +27,7 @@ export default {
 
 <template>
     <HeaderProduct :oneProduct="oneProduct"></HeaderProduct>
-    <ProductList v-bind:listProduct="listProduct"></ProductList>
+    <ProductList v-bind:listProduct="listProduct" @getOneProduct="$emit('getOneProduct', oneProduct.id)"></ProductList>
 </template>
 
 <style>

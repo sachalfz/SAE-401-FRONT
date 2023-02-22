@@ -15,65 +15,65 @@ export default {
   },
   data() {
     return {
-      categories: [
-        {name: 'Polos'},
-        {name: 'Jeans'},
-        {name: 'Sneakers'}
-      ],
+      // categories: [
+      //   {name: 'Polos'},
+      //   {name: 'Jeans'},
+      //   {name: 'Sneakers'}
+      // ],
 
-      oneCat:  {
-        description: "Pantalons de très bonne qualité", 
-        name: "Pants",
-        img: "https://picsum.photos/1500/1500"
-      },
+      // oneCat:  {
+      //   description: "Pantalons de très bonne qualité", 
+      //   name: "Pants",
+      //   img: "https://picsum.photos/1500/1500"
+      // },
 
-      oneProduct:  {
-        id: 1,
-        name: "Un beau polo",
-        description: "edqnjgbipb",
-        price: 160,
-        img: "https://picsum.photos/400"
-      },
+      // oneProduct:  {
+      //   id: 1,
+      //   name: "Un beau polo",
+      //   description: "edqnjgbipb",
+      //   price: 160,
+      //   img: "https://picsum.photos/400"
+      // },
 
-      products: [
-      {
-        id: 2,
-        name: "Un beau polo",
-        description: "edqnjgbipb",
-        price: 160,
-        img: "https://picsum.photos/400"
-      },
-      {
-        id: 3,
-        name: "Un beau polo",
-        description: "edqnjgbipb",
-        price: 160,
-        img: "https://picsum.photos/400"
-      },
-      {
-        id: 4,
-        name: "Un beau polo",
-        description: "edqnjgbipb",
-        price: 160,
-        img: "https://picsum.photos/400"
-      },
-      {
-        id: 5,
-        name: "Un beau polo",
-        description: "edqnjgbipb",
-        price: 160,
-        img: "https://picsum.photos/400"
-      }
-      ]
+      // products: [
+      // {
+      //   id: 2,
+      //   name: "Un beau polo",
+      //   description: "edqnjgbipb",
+      //   price: 160,
+      //   img: "https://picsum.photos/400"
+      // },
+      // {
+      //   id: 3,
+      //   name: "Un beau polo",
+      //   description: "edqnjgbipb",
+      //   price: 160,
+      //   img: "https://picsum.photos/400"
+      // },
+      // {
+      //   id: 4,
+      //   name: "Un beau polo",
+      //   description: "edqnjgbipb",
+      //   price: 160,
+      //   img: "https://picsum.photos/400"
+      // },
+      // {
+      //   id: 5,
+      //   name: "Un beau polo",
+      //   description: "edqnjgbipb",
+      //   price: 160,
+      //   img: "https://picsum.photos/400"
+      // }
+      // ]
     
 
-      // categories:  [],
+      categories:  [],
 
-      // oneCat:  {},
+      oneCat:  {},
 
-      // oneProduct:  {},
+      oneProduct:  {},
 
-      // products: []
+      products: []
     }
   },
   
@@ -119,15 +119,14 @@ export default {
   created(){
     this.getAllProducts();
     this.getAllCategories();
-    this.getOneCategory(1);
   }
 }
 </script>
 
 <template>
-    <HeaderComponent v-bind:categories="categories"></HeaderComponent>
+    <HeaderComponent v-bind:categories="categories" @getOneCategory="getOneCategory"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct" :trash="true" @delete="deleteItem" /> 
+      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" /> 
     </main> 
 </template>
 

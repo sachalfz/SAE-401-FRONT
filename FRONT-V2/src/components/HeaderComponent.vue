@@ -27,7 +27,7 @@
         <ul class="liste">
             <li v-for="item in categories">
                 <div class="nav__cat">
-                    <router-link :to="'/category/'+ item.name" class="nav__cat--txt">{{ item.name }}</router-link>
+                    <router-link :to="'/category/'+ item.name" @click="$emit('getOneCategory', item.id)" class="nav__cat--txt">{{ item.name }}</router-link>
                 </div>
             </li>
         </ul>
