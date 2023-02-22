@@ -110,10 +110,11 @@ export default {
     this.oneCat = data;
     },
 
-    deleteItem(product) {
-      console.log(product);
-          this.products.splice(this.products.indexOf(product), 1);
+    deleteItem(item) {
+      console.log(item);
+          this.products.splice(this.products.indexOf(item), 1);
       },
+
   },
   created(){
     this.getAllProducts();
