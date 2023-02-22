@@ -8,12 +8,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: HomepageView
     },
     {
-      path: '/category',
+      path: '/category/:name',
       name: 'category',
       component: CategoryPageView
     },
@@ -23,7 +23,7 @@ const router = createRouter({
       component: PanierPageView
     },
     {
-      path: '/product',
+      path: '/product/:name',
       name: 'product',
       component: ProductPageView
     }

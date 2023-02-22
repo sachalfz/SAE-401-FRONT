@@ -14,12 +14,12 @@
 
 <template>
     <header class="header">
-      <router-link to="/"><img class="header--logo" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/croco.svg" alt="logo lacoste"></router-link>
+      <router-link to="/home"><img class="header--logo" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/croco.svg" alt="logo lacoste"></router-link>
       <div class="header__icons">
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/localisation.svg" alt="localisation">
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/favorite.svg" alt="favoris">
           <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/profile.svg" alt="profile">
-          <a href="/panier"><img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/bag.svg" alt="panier"></a>
+          <router-link to="/panier"> <img class="header__icons--img" src="https://mmi.unilim.fr/~maury92/SA%c3%a9301/assets/icons/bag.svg" alt="panier"> </router-link>
       </div>
     </header>
 
@@ -27,7 +27,7 @@
         <ul class="liste">
             <li v-for="item in categories">
                 <div class="nav__cat">
-                    <a href="/category" class="nav__cat--txt">{{ item.name }}</a>
+                    <router-link :to="'/category/'+ item.name" class="nav__cat--txt">{{ item.name }}</router-link>
                 </div>
             </li>
         </ul>

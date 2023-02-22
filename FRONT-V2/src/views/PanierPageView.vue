@@ -12,6 +12,11 @@ export default {
                 return value.length <= 100;
             }
         },
+
+        trash: {
+                type: Boolean,
+                default: false
+            }
     }
 }
 </script>

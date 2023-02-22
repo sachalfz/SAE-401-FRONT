@@ -11,7 +11,12 @@ import ProductPanier from './ProductPanier.vue';
                 validator(value){
                     return value.length <= 100;
                 }
-            },          
+            }, 
+            
+            trash: {
+                type: Boolean,
+                default: false
+            }
         }
     }
 </script>
@@ -19,7 +24,7 @@ import ProductPanier from './ProductPanier.vue';
 <template>
     <div class="panier__gauche__produits">
         <ul class="card__list">
-            <li class="panier__gauche__produits" v-for="item in products"> <ProductPanier v-bind:product="item" :trash="true" @delete="$emit('delete', product)" :key="item.id"></ProductPanier> </li>
+            <li class="panier__gauche__produits" v-for="item in products" :key="item.id"> <ProductPanier v-bind:product="item" :trash="true" @delete="$emit('delete', product)"></ProductPanier> </li>
         </ul>
     </div>
     
