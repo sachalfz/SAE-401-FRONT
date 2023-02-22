@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <div class="panier__gauche__produits">
+    <div class="panier__global">
         <ul class="card__list">
             <li class="panier__gauche__produits" v-for="item in listProduct" :key="item.id">
                 <div class="panier__gauche__produits__quote">
@@ -35,7 +35,7 @@ export default {
                                 {{item.name}}
                             </div>
                             <div class="panier__gauche__produits__svg">
-                                <img  v-if="trash" @click="$emit('delete', item)" src="../assets/bin.svg" alt="bin">
+                                <img  v-if="trash" @click="$emit('delete', item)" src="https://mmi.unilim.fr/~bennis1/bin.svg" alt="bin">
                             </div>
                         </div>
 
@@ -52,20 +52,25 @@ export default {
                         </div>
 
                         <div class="panier__gauche__produits__price">
-                            {{item.price}}
+                            {{item.price}}€
                         </div>
 
                     </div>
                 </div>
             </li>
         </ul>
-    </div>
 
-    <div class="panier__gauche__divbutton">
         <button class="panier__gauche__button">
             Valider
         </button>
+
     </div>
+
+    <!-- <div class="panier__gauche__divbutton">
+        <button class="panier__gauche__button">
+            Valider
+        </button>
+    </div> -->
 
     <!-- <PanierPage v-bind:products="listProduct" :trash="true" @delete="$emit('delete', product)"></PanierPage>
 
