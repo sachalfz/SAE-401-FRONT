@@ -28,7 +28,7 @@
             </div>
             <div class="article__options">
                 <p class="article__options--title">Colors</p>
-                <div class="article__options__choice">
+                <div class="article__options__choice" v-for="item in oneProduct.color">
                     <button class="article__options__choice--btn btncolors"></button>
                     <button class="article__options__choice--btn btncolors"></button>
                     <button class="article__options__choice--btn btncolors"></button>
