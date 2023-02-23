@@ -28,22 +28,18 @@
             </div>
             <div class="article__options">
                 <p class="article__options--title">Colors</p>
-                <div class="article__options__choice" v-for="item in oneProduct.color">
-                    <button class="article__options__choice--btn btncolors"></button>
-                    <button class="article__options__choice--btn btncolors"></button>
-                    <button class="article__options__choice--btn btncolors"></button>
-                    <button class="article__options__choice--btn btncolors"></button>
-                    <button class="article__options__choice--btn btncolors"></button>
-                    <button class="article__options__choice--btn btncolors"></button>
+                <div class="article__options__choice">
+                    <div class="article__options__choice" v-for="item in oneProduct.color">
+                        <button class="article__options__choice--btn btncolors"></button>
+                    </div>
                 </div>
             </div>
             <div class="article__options">
                 <p class="article__options--title">Sizes</p>
                 <div class="article__options__choice">
-                    <button class="article__options__choice--btn btnsizes">S</button>
-                    <button class="article__options__choice--btn btnsizes">M</button>
-                    <button class="article__options__choice--btn btnsizes">L</button>
-                    <button class="article__options__choice--btn btnsizes">XL</button>
+                    <div class="article__options__choice" v-for="item in oneProduct.size">
+                        <button class="article__options__choice--btn btnsizes">{{item}}</button>
+                    </div>
                 </div>
             </div>
             <div class="article__options">
