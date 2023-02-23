@@ -73,7 +73,7 @@ export default {
 
       oneProduct:  {},
 
-      products: []
+      allProducts: []
     }
   },
   
@@ -82,38 +82,42 @@ export default {
     {
     let res = await fetch (baseURL + 'products');
     let data = await res.json();
-    this.products = data;
+    this.allProducts = data;
     },
 
     async getAllCategories()
     {
     let res = await fetch (baseURL + 'categories');
     let data = await res.json();
-    
-    console.log(data);
     this.categories = data;
     },
 
     async getOneProduct(id)
     {
-    let res = await fetch (baseURL + 'products/' + id);
-    let data = await res.json();
-    console.log(data);
-    this.oneProduct = data;
-    
+      let res = await fetch (baseURL + 'products/' + id);
+      let data = await res.json();
+      this.oneProduct = data;
     },
 
-    async getOneCategory(id)
+    async getOneProductForCategory(category)
     {
-    let res = await fetch (baseURL + 'categories/' + id);
+      let res = await fetch (baseURL + category + '/');
+      let data = await res.json();
+      this.oneProduct = data[0];
+    },
+
+    async getOneCategory(item)
+    {
+    let res = await fetch (baseURL + 'categories/' + item.id);
     let data = await res.json();
     this.oneCat = data;
+    this.oneProduct = data.products[0];
+    this.allProducts = data.products;
     },
 
     deleteItem(item) {
-      console.log(item);
-          this.products.splice(this.products.indexOf(item), 1);
-      },
+      this.products.splice(this.products.indexOf(item), 1);
+    },
 
   },
   created(){
@@ -124,9 +128,9 @@ export default {
 </script>
 
 <template>
-    <HeaderComponent v-bind:categories="categories" @getOneCategory="getOneCategory"></HeaderComponent>
+    <HeaderComponent v-bind:categories="categories" @getOneCategory="getOneCategory" @getAllProducts="getAllProducts"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="products" :oneProduct="oneProduct" :oneCategory="oneCat" @show-product="getOneProduct" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" /> 
+      <router-view :listProduct="allProducts" :oneProduct="oneProduct" :oneCategory="oneCat" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" /> 
     </main> 
 </template>
 

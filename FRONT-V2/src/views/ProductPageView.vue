@@ -19,10 +19,16 @@ export default {
                 return value.length <= 100;
             }
         }
-    }
+    },
+    methods: {
+            handler_getOneProduct(id){
+               // console.log(id);
+                this.$emit('getOneProduct', id);
+            }
+        }
 }
 </script>
 
 <template>
-  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory" @getOneProduct="$emit('getOneProduct', oneProduct.id)"></ProductPage>
+  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory" @getOneProduct="handler_getOneProduct"></ProductPage>
 </template>

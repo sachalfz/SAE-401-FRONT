@@ -21,13 +21,19 @@ export default {
                 return value.length <= 100;
             }
         }
-    }
+    },
+    methods: {
+            handler_getOneProduct(id){
+               // console.log(id);
+                this.$emit('getOneProduct', id);
+            }
+        }
 }
 </script>
 
 <template>
     <HeaderProduct :oneProduct="oneProduct"></HeaderProduct>
-    <ProductList v-bind:listProduct="listProduct" @getOneProduct="$emit('getOneProduct', oneProduct.id)"></ProductList>
+    <ProductList v-bind:listProduct="listProduct" @getOneProduct="handler_getOneProduct"></ProductList>
 </template>
 
 <style>
