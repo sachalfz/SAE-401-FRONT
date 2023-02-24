@@ -29,7 +29,7 @@ import ProductPanier from './ProductPanier.vue';
     </div>
     
     <div class="panier__gauche__divbutton">
-        <button class="panier__gauche__button">
+        <button class="panier__gauche__button" @click="$emit('placeOrder', products)">
             Valider
         </button>
     </div>

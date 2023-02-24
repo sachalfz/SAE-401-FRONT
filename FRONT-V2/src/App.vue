@@ -3,6 +3,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import Banner from './components/Banner.vue';
 import ProductList from './components/ProductList.vue';
 import Homepage from './components/Homepage.vue';
+import axios from 'axios';
 
 const baseURL = 'https://mmi.unilim.fr/~maury92/SAE-401-Back%20-%20RedoEasyAdmin/public/index.php/api/';
 
@@ -77,20 +78,39 @@ export default {
         alert('No Duplicates Allowed!');
       }
       this.basket = [...new Set(this.basket)]
-    }
-  },
+    },
 
+    placeOrder(array){
+      console.log(array);
+      let orderIds = [];
+      for (const elt of array) {
+        orderIds.push(elt.id);        
+      }
+      const data = {
+      items: orderIds
+      };
+      axios.post(baseURL + 'baskets', data)
+      .then(response => {
+        console.log('item added to basket', response.data);
+        alert("Your order is on the way. Thank you for your purchase!");
+        this.basket.splice(0, this.basket.length);
+      })
+      .catch(error => {
+        console.error('Failed to add to the basket', error);
+      })
+    },  
+  },
   created(){
-    this.getAllProducts();
-    this.getAllCategories();
-  }
+      this.getAllProducts();
+      this.getAllCategories();
+    }
 }
 </script>
 
 <template>
     <HeaderComponent v-bind:categories="categories" @getOneCategory="getOneCategory" @getAllProducts="getAllProducts"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="allProducts" :basketProduct="basket" :oneProduct="oneProduct" :oneCategory="oneCat" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" @putToBasket="putToBasket"/> 
+      <router-view :listProduct="allProducts" :basketProduct="basket" :oneProduct="oneProduct" :oneCategory="oneCat" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" @putToBasket="putToBasket" @placeOrder="placeOrder"/> 
     </main> 
 </template>
 

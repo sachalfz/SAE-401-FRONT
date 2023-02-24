@@ -60,7 +60,7 @@ export default {
             </li>
         </ul>
 
-        <button class="panier__gauche__button">
+        <button class="panier__gauche__button" @click="$emit('placeOrder', basketProduct)">
             Valider
         </button>
 

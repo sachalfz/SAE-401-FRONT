@@ -28,11 +28,15 @@ export default {
             handler_putToBasket(item){
                 //console.log(item);
                 this.$emit('putToBasket', item);
+            },
+            handler_placeOrder(array){
+                //console.log(array);
+                this.$emit('placeOrder', array);
             }
         }
 }
 </script>
 
 <template>
-  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory" @getOneProduct="handler_getOneProduct" @putToBasket="handler_putToBasket"></ProductPage>
+  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory" @getOneProduct="handler_getOneProduct" @putToBasket="handler_putToBasket" @placeOrder="handler_placeOrder"></ProductPage>
 </template>
