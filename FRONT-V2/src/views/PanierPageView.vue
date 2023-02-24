@@ -5,7 +5,7 @@ export default {
 //     PanierPage
 //   },
   props: {
-        listProduct : {
+        basketProduct : {
             type: Array,
             required: true,
             validator(value) {
@@ -24,7 +24,7 @@ export default {
 <template>
     <div class="panier__global">
         <ul class="card__list">
-            <li class="panier__gauche__produits" v-for="item in listProduct" :key="item.id">
+            <li class="panier__gauche__produits" v-for="item in basketProduct" :key="item.id">
                 <div class="panier__gauche__produits__quote">
                     <div class="panier__gauche__produits__image">
                         <img class="panier__gauche__produits__img" v-bind:src="item.img">

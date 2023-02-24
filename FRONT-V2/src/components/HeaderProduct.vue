@@ -46,7 +46,7 @@
                 <p class="article__options--title">Description</p>
                 <p class="article__options--txt">{{oneProduct.description}}</p>
             </div>
-            <button class="article--cart">Click & Collect (Retrait en Magasin)</button>
+            <button class="article--cart" @click="$emit('putToBasket', oneProduct)">Click & Collect (Retrait en Magasin)</button>
 
         </div>
 

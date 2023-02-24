@@ -24,11 +24,15 @@ export default {
             handler_getOneProduct(id){
                // console.log(id);
                 this.$emit('getOneProduct', id);
+            },
+            handler_putToBasket(item){
+                //console.log(item);
+                this.$emit('putToBasket', item);
             }
         }
 }
 </script>
 
 <template>
-  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory" @getOneProduct="handler_getOneProduct"></ProductPage>
+  <ProductPage :listProduct="listProduct" :oneProduct="oneProduct" :oneCategory="oneCategory" @getOneProduct="handler_getOneProduct" @putToBasket="handler_putToBasket"></ProductPage>
 </template>

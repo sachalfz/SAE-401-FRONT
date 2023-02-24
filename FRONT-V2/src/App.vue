@@ -21,7 +21,9 @@ export default {
 
       oneProduct:  {},
 
-      allProducts: []
+      allProducts: [],
+
+      basket: []
     }
   },
   
@@ -64,10 +66,20 @@ export default {
     },
 
     deleteItem(item) {
-      this.allProducts.splice(this.allProducts.indexOf(item), 1);
-    }
+      this.basket.splice(this.basket.indexOf(item), 1);
+    },
 
+    putToBasket(item){
+      console.log(item);
+      //this.basket.push(item);
+      this.basket.push(item);
+      if (this.basket.indexOf(item) !== this.basket.lastIndexOf(item)) {
+        alert('No Duplicates Allowed!');
+      }
+      this.basket = [...new Set(this.basket)]
+    }
   },
+
   created(){
     this.getAllProducts();
     this.getAllCategories();
@@ -78,7 +90,7 @@ export default {
 <template>
     <HeaderComponent v-bind:categories="categories" @getOneCategory="getOneCategory" @getAllProducts="getAllProducts"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="allProducts" :oneProduct="oneProduct" :oneCategory="oneCat" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" /> 
+      <router-view :listProduct="allProducts" :basketProduct="basket" :oneProduct="oneProduct" :oneCategory="oneCat" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" @putToBasket="putToBasket"/> 
     </main> 
 </template>
 

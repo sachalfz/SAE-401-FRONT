@@ -26,13 +26,18 @@ export default {
             handler_getOneProduct(id){
                // console.log(id);
                 this.$emit('getOneProduct', id);
+            },
+            handler_putToBasket(item){
+                //console.log(item);
+                this.$emit('putToBasket', item);
             }
-        }
+        },
+        
 }
 </script>
 
 <template>
-    <HeaderProduct :oneProduct="oneProduct"></HeaderProduct>
+    <HeaderProduct :oneProduct="oneProduct" @putToBasket="handler_putToBasket"></HeaderProduct>
     <ProductList v-bind:listProduct="listProduct" @getOneProduct="handler_getOneProduct"></ProductList>
 </template>
 
