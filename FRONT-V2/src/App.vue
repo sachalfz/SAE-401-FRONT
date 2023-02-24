@@ -64,7 +64,7 @@ export default {
     },
 
     deleteItem(item) {
-      this.products.splice(this.products.indexOf(item), 1);
+      this.allProducts.splice(this.allProducts.indexOf(item), 1);
     }
 
   },
