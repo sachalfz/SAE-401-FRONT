@@ -8,12 +8,6 @@
                     return value.length <= 100;
                 }
             },
-        },
-        methods: {
-            changeColor(value){
-                elt = document.querrySelector('.btncolors');
-                elt.style.backgroundColor = value;
-            }
         }
     }
 </script>
@@ -35,8 +29,8 @@
             <div class="article__options">
                 <p class="article__options--title">Colors</p>
                 <div class="article__options__choice">
-                    <div class="article__options__choice_colors" v-for="item in oneProduct.color">
-                        <button class="article__options__choice--btn btncolors"></button>
+                    <div class="article__options__choice_colors" v-for="item in oneProduct.color" >
+                        <button class="article__options__choice--btn btncolors" :style="{'background-color': item}"></button>
                     </div>
                 </div>
             </div>

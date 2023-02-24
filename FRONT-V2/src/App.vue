@@ -65,15 +65,6 @@ export default {
 
     deleteItem(item) {
       this.products.splice(this.products.indexOf(item), 1);
-    },
-
-    setColors(item){
-      for (const elt of item.color) {
-        emplacement = document.querySelector(".article__options__choice__colors");
-        emplacement.innerHTML = '<button class="article__options__choice--btn btncolors"></button>';
-        newElt.classList.add("color" + 1);
-        emplacement.appendChild(d);        
-      }
     }
 
   },
