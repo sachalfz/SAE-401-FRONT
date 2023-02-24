@@ -8,7 +8,14 @@
                     return value.length <= 100;
                 }
             },
-        }
+            selectedProps : {
+                type: Object,
+                required: true,
+                validator(value) {
+                    return value.length <= 100;
+                }
+            },
+        },
     }
 </script>
 <template>
@@ -30,17 +37,19 @@
                 <p class="article__options--title">Colors</p>
                 <div class="article__options__choice">
                     <div class="article__options__choice_colors" v-for="item in oneProduct.color" >
-                        <button class="article__options__choice--btn btncolors" :style="{'background-color': item}"></button>
+                        <button class="article__options__choice--btn btncolors" :style="{'background-color': item}" @click="$emit('getColor', item)" ></button>
                     </div>
                 </div>
+                <p class="article__options--title">Selected: {{selectedProps.color}}</p>
             </div>
             <div class="article__options">
                 <p class="article__options--title">Sizes</p>
                 <div class="article__options__choice">
                     <div class="article__options__choice" v-for="item in oneProduct.size">
-                        <button class="article__options__choice--btn btnsizes">{{item}}</button>
+                        <button class="article__options__choice--btn btnsizes" @click="$emit('getSize', item)">{{item}}</button>
                     </div>
                 </div>
+                <p class="article__options--title">Selected: {{ selectedProps.size }}</p>
             </div>
             <div class="article__options">
                 <p class="article__options--title">Description</p>

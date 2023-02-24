@@ -20,6 +20,13 @@ export default {
             validator(value) {
                 return value.length <= 100;
             }
+        },
+        selectedProps : {
+            type: Object,
+            required: true,
+            validator(value) {
+                return value.length <= 100;
+            }
         }
     },
     methods: {
@@ -30,6 +37,14 @@ export default {
             handler_putToBasket(item){
                 //console.log(item);
                 this.$emit('putToBasket', item);
+            },
+            handler_getColor(item){
+                //console.log(item);
+                this.$emit('getColor', item);
+            },
+            handler_getSize(item){
+                //console.log(item);
+                this.$emit('getSize', item);
             }
         },
         
@@ -37,8 +52,8 @@ export default {
 </script>
 
 <template>
-    <HeaderProduct :oneProduct="oneProduct" @putToBasket="handler_putToBasket"></HeaderProduct>
-    <ProductList v-bind:listProduct="listProduct" @getOneProduct="handler_getOneProduct"></ProductList>
+    <HeaderProduct v-bind:selectedProps="selectedProps" :oneProduct="oneProduct" @putToBasket="handler_putToBasket" @getColor="handler_getColor" @getSize="handler_getSize"></HeaderProduct>
+    <ProductList  v-bind:listProduct="listProduct" @getOneProduct="handler_getOneProduct"></ProductList>
 </template>
 
 <style>

@@ -5,7 +5,7 @@ import ProductList from './components/ProductList.vue';
 import Homepage from './components/Homepage.vue';
 import axios from 'axios';
 
-const baseURL = 'https://mmi.unilim.fr/~maury92/SAE-401-Back%20-%20RedoEasyAdmin/public/index.php/api/';
+const baseURL = 'http://127.0.0.1:8000/api/';
 
 export default {
   components :{
@@ -17,14 +17,11 @@ export default {
   data() {
     return {
       categories:  [],
-
       oneCat:  {},
-
       oneProduct:  {},
-
       allProducts: [],
-
-      basket: []
+      basket: [],
+      selectedProps: {color:'aucun choix', size:'aucun choix'},
     }
   },
   
@@ -47,6 +44,8 @@ export default {
     {
       let res = await fetch (baseURL + 'products/' + id);
       let data = await res.json();
+      this.selectedProps.color = "";
+      this.selectedProps.size = "";
       this.oneProduct = data;
     },
 
@@ -70,9 +69,20 @@ export default {
       this.basket.splice(this.basket.indexOf(item), 1);
     },
 
+    getColor(item) {
+      //console.log(item);
+      this.selectedProps.color = item
+    },
+
+    getSize(item) {
+      //console.log(item);
+      this.selectedProps.size = item
+    },
+
     putToBasket(item){
-      console.log(item);
-      //this.basket.push(item);
+      //console.log(item);
+      item.selectedColor = this.selectedProps.color;
+      item.selectedSize = this.selectedProps.size;
       this.basket.push(item);
       if (this.basket.indexOf(item) !== this.basket.lastIndexOf(item)) {
         alert('No Duplicates Allowed!');
@@ -81,28 +91,39 @@ export default {
     },
 
     placeOrder(array){
-      console.log(array);
-      let orderIds = [];
-      for (const elt of array) {
-        orderIds.push(elt.id);        
-      }
-      const data = {
-      items: orderIds
-      };
-      axios.post(baseURL + 'baskets', data)
-      .then(response => {
-        console.log('item added to basket', response.data);
-        alert("Your order is on the way. Thank you for your purchase!");
-        this.basket.splice(0, this.basket.length);
-      })
+      let idBasket = '';
+      let newBasket = {};
+      axios.post(baseURL + 'baskets' , newBasket)
       .catch(error => {
-        console.error('Failed to add to the basket', error);
-      })
+          console.error('Failed to add basket to the BDD', error);
+        }) 
+
+      for (const elt of array) {
+        let properties = {
+          name: elt.name,
+          color: elt.selectedColor,
+          size: elt.selectedSize,
+          basket_id: idBasket,
+          product_id: elt.id
+        };
+        axios.post(baseURL + 'basket_items', properties) 
+        .then(response => {
+          console.log('item added to BDD', response.data);
+        })
+        .catch(error => {
+          console.error('Failed to add basketItem to the BDD', error);
+        })    
+      }
+      alert('Thanks for your purchase!');
+      this.basket.splice(0, this.basket.length);
+
     },  
   },
   created(){
       this.getAllProducts();
       this.getAllCategories();
+      this.getColor();
+      this.getSize();
     }
 }
 </script>
@@ -110,7 +131,7 @@ export default {
 <template>
     <HeaderComponent v-bind:categories="categories" @getOneCategory="getOneCategory" @getAllProducts="getAllProducts"></HeaderComponent>
     <main class="main">
-      <router-view :listProduct="allProducts" :basketProduct="basket" :oneProduct="oneProduct" :oneCategory="oneCat" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" @putToBasket="putToBasket" @placeOrder="placeOrder"/> 
+      <router-view v-bind:selectedProps="selectedProps" :listProduct="allProducts" :basketProduct="basket" :oneProduct="oneProduct" :oneCategory="oneCat" :trash="true" @delete="deleteItem" @getOneProduct="getOneProduct" @putToBasket="putToBasket" @placeOrder="placeOrder" @getColor="getColor" @getSize="getSize"/> 
     </main> 
 </template>
 
