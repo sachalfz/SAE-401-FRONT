@@ -468,6 +468,12 @@ a {
   align-items: flex-start;
   gap: 10px;
 }
+.article__options__choice__colors {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
 .article__options__choice--btn {
   box-sizing: border-box;
   height: 40px;
