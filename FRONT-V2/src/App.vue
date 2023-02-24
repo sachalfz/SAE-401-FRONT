@@ -5,7 +5,7 @@ import ProductList from './components/ProductList.vue';
 import Homepage from './components/Homepage.vue';
 import axios from 'axios';
 
-const baseURL = 'http://127.0.0.1:8000/api/';
+const baseURL = 'https://mmi.unilim.fr/~maury92/SAE-401-Back/public/index.php/api/';
 
 export default {
   components :{
@@ -92,11 +92,11 @@ export default {
 
     placeOrder(array){
       let idBasket = '';
-      let newBasket = {};
-      axios.post(baseURL + 'baskets' , newBasket)
-      .catch(error => {
-          console.error('Failed to add basket to the BDD', error);
-        }) 
+      // let newBasket = {};
+      // axios.post(baseURL + 'baskets' , newBasket)
+      // .catch(error => {
+      //     console.error('Failed to add basket to the BDD', error);
+      //   }) 
 
       for (const elt of array) {
         let properties = {
